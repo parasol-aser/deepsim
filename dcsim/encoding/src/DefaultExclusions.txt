@@ -1,0 +1,8 @@
+java\/awt\/.*
+javax\/swing\/.*
+sun\/awt\/.*
+sun\/swing\/.*
+com\/sun\/.*
+sun\/.*
+org\/.*
+com\/ibm\/wala.*

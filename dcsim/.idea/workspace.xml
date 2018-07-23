@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="31aa9d6d-ebb9-4b3a-aa27-786d219e6c14" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/classification_bigbench_keras.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/preprocessing_bigbench.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/samples.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/samples.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/googlejam4.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/googlejam_newencoding/g4_128.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/encoding/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/encoding/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocessing.py" afterDir="false" />
+    </list>
+    <ignored path="samples.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/.idea/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/samples$soucercc_eval.coverage" NAME="soucercc_eval Coverage Results" MODIFIED="1480973981212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dcsim$preprocessing_bigbench.coverage" NAME="preprocessing_bigbench Coverage Results" MODIFIED="1520353738841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$reduction.coverage" NAME="reduction Coverage Results" MODIFIED="1477355993367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$rnn.coverage" NAME="rnn Coverage Results" MODIFIED="1481253296170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$soucercc_test_pair_eval.coverage" NAME="soucercc_test_pair_eval Coverage Results" MODIFIED="1481498717941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$rnn_update.coverage" NAME="rnn_update Coverage Results" MODIFIED="1503065920170" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dcsim$classification.coverage" NAME="classification Coverage Results" MODIFIED="1520217188320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$preprocessing.coverage" NAME="preprocessing Coverage Results" MODIFIED="1493671525985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$ase16.coverage" NAME="ase16 Coverage Results" MODIFIED="1503088760083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/existing_techniques" />
+    <SUITE FILE_PATH="coverage/samples$deckard_test_eval__1_.coverage" NAME="deckard_test_eval (1) Coverage Results" MODIFIED="1481250602158" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$deckard_test_eval.coverage" NAME="deckard_test_eval Coverage Results" MODIFIED="1503688660697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/dcsim$classification_bigbench_keras.coverage" NAME="classification_bigbench_keras Coverage Results" MODIFIED="1520240551542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$deckard_eval.coverage" NAME="deckard_eval Coverage Results" MODIFIED="1480463766539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$rnn_unsup.coverage" NAME="rnn_unsup Coverage Results" MODIFIED="1503063349685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$cnn.coverage" NAME="cnn Coverage Results" MODIFIED="1500904871425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$classification.coverage" NAME="classification Coverage Results" MODIFIED="1503025357949" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$soucercc_test_eval.coverage" NAME="soucercc_test_eval Coverage Results" MODIFIED="1481169788620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$viz.coverage" NAME="viz Coverage Results" MODIFIED="1478840926526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/samples$sourcercc_test_eval.coverage" NAME="sourcercc_test_eval Coverage Results" MODIFIED="1503689441733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="samples">
+      <favorite_root url="file://$PROJECT_DIR$/classification.py" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+    </favorites_list>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="classification.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classification.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6000">
+              <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
+              <folding>
+                <element signature="e#25#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="classification_bigbench_keras.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classification_bigbench_keras.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="686">
+              <caret line="480" column="66" lean-forward="true" selection-start-line="480" selection-start-column="66" selection-end-line="480" selection-end-column="66" />
+              <folding>
+                <element signature="e#1070#1086#0" />
+                <element signature="e#5171#5300#1" />
+                <element signature="e#5719#5978#0" />
+                <element signature="e#5726#5888#0" />
+                <element signature="e#6017#6199#1" />
+                <element signature="e#6255#6328#0" />
+                <element signature="e#6365#6521#0" />
+                <element signature="e#6365#6407#0" />
+                <element signature="e#6768#6836#0" />
+                <element signature="e#10231#10258#0" />
+                <element signature="e#11218#11298#0" />
+                <element signature="e#12374#13046#0" />
+                <element signature="e#12374#12427#0" />
+                <element signature="e#12722#12751#0" />
+                <element signature="e#15434#15491#0" />
+                <element signature="e#16427#16501#0" />
+                <element signature="e#16602#16714#0" />
+                <element signature="e#17268#17371#0" />
+                <element signature="e#18102#18194#0" />
+                <element signature="e#18325#18415#0" />
+                <element signature="e#22206#22223#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sda_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sda_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3208">
+              <caret line="222" column="55" selection-start-line="222" selection-start-column="55" selection-end-line="222" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sda_unsup.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sda_unsup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+                <element signature="e#869#1389#0" />
+                <element signature="e#1422#1533#0" />
+                <element signature="e#1571#1976#0" />
+                <element signature="e#2014#2196#0" />
+                <element signature="e#2227#3243#0" />
+                <element signature="e#3265#4127#0" />
+                <element signature="e#4186#5015#0" />
+                <element signature="e#5054#5570#0" />
+                <element signature="e#5611#5830#0" />
+                <element signature="e#5866#20703#0" />
+                <element signature="e#20751#22514#0" />
+                <element signature="e#22552#25828#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preprocessing_bigbench.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/preprocessing_bigbench.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="720">
+              <caret line="199" selection-start-line="199" selection-end-line="199" />
+              <folding>
+                <element signature="e#39#76#0" expanded="true" />
+                <element signature="e#514#1011#0" />
+                <element signature="e#1047#1576#0" />
+                <element signature="e#1618#2030#0" />
+                <element signature="e#3438#6904#0" />
+                <element signature="e#6966#8629#0" />
+                <element signature="e#8659#9299#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preprocessing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/preprocessing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1780">
+              <caret line="248" column="29" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+              <folding>
+                <element signature="e#281#1543#0" />
+                <element signature="e#2990#4435#0" />
+                <element signature="e#4800#5302#0" />
+                <element signature="e#5689#6937#0" />
+                <element signature="e#6989#7308#0" />
+                <element signature="e#7386#7941#0" />
+                <element signature="e#7973#8702#0" />
+                <element signature="e#8731#10415#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="graph_mat_data.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/graph_mat_data.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="23" column="33" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>train4_128</find>
+      <find>info</find>
+      <find>ctime</find>
+      <find>beta</find>
+      <find>comma_math_real_benchmark_128.npy</find>
+      <find>n</find>
+      <find>npy</find>
+      <find>initializer</find>
+      <find>variable_summaries</find>
+      <find>np.sum(</find>
+      <find>400</find>
+      <find>training samples</find>
+      <find>batch_input_shape</find>
+      <find>batch_size</find>
+      <find>shuffle</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/data_collecting.py" />
+        <option value="$PROJECT_DIR$/autoencoder.py" />
+        <option value="$PROJECT_DIR$/feature_extraction.py" />
+        <option value="$PROJECT_DIR$/real_bench_unsup2/report/grails_grails.txt" />
+        <option value="$PROJECT_DIR$/reduction.py" />
+        <option value="$PROJECT_DIR$/viz.py" />
+        <option value="$PROJECT_DIR$/cnn.py" />
+        <option value="$PROJECT_DIR$/soucercc_eval.py" />
+        <option value="$PROJECT_DIR$/naive_eval.py" />
+        <option value="$PROJECT_DIR$/deckard_eval.py" />
+        <option value="$PROJECT_DIR$/models/desp" />
+        <option value="$PROJECT_DIR$/soucercc_test_eval.py" />
+        <option value="$PROJECT_DIR$/rnn.py" />
+        <option value="$PROJECT_DIR$/soucercc_test_pair_eval.py" />
+        <option value="$PROJECT_DIR$/result/10_fold_detail.txt" />
+        <option value="$PROJECT_DIR$/result/10_fold.txt" />
+        <option value="$PROJECT_DIR$/existing_techniques.py" />
+        <option value="$PROJECT_DIR$/existing_techniques/inspect_checkpoint.py" />
+        <option value="$PROJECT_DIR$/existing_techniques/model/results.txt" />
+        <option value="$PROJECT_DIR$/result/sda_unsup_10_fold.txt" />
+        <option value="$PROJECT_DIR$/result/sda_base_10_fold.txt" />
+        <option value="$PROJECT_DIR$/result/time_stat.txt" />
+        <option value="$PROJECT_DIR$/existing_techniques/ase16.py" />
+        <option value="$PROJECT_DIR$/deckard_test_eval.py" />
+        <option value="$PROJECT_DIR$/sourcercc_test_eval.py" />
+        <option value="$PROJECT_DIR$/rnn_unsup.py" />
+        <option value="$PROJECT_DIR$/rnn_update.py" />
+        <option value="$PROJECT_DIR$/graph_mat_data.py" />
+        <option value="$PROJECT_DIR$/sda_unsup.py" />
+        <option value="$PROJECT_DIR$/sda_base.py" />
+        <option value="$PROJECT_DIR$/result/id4.txt" />
+        <option value="$PROJECT_DIR$/result/10_fold_balanced.txt" />
+        <option value="$PROJECT_DIR$/preprocessing_bigbench.py" />
+        <option value="$PROJECT_DIR$/classification_bigbench.py" />
+        <option value="$PROJECT_DIR$/preprocessing.py" />
+        <option value="$PROJECT_DIR$/classification.py" />
+        <option value="$PROJECT_DIR$/classification_bigbench_keras.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="541" />
+    <option name="y" value="33" />
+    <option name="width" value="1379" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Python</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>PyCompatibilityInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="1" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dcsim" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dcsim" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="shuffle&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="$USER_HOME$/.nvm/v0.10.25/bin/node" />
+    <property name="js.eslint.eslintPackage" value="" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/real_bench_unsup/data" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.preprocessing_bigbench">
+    <configuration name="classification" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="classification_bigbench_keras" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification_bigbench_keras.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="deckard_test_eval" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deckard_test_eval.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="preprocessing_bigbench" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessing_bigbench.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="sourcercc_test_eval" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sourcercc_test_eval.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration default="true" type="CargoCommandRunConfiguration" factoryName="Cargo Command" show_console_on_std_err="false" show_console_on_std_out="false">
+      <parameters>
+        <option name="additionalArguments">
+          <list />
+        </option>
+        <option name="backtraceMode" value="2" />
+        <option name="channel" value="0" />
+        <option name="command" value="run" />
+        <option name="environmentVariables">
+          <map />
+        </option>
+        <option name="nocapture" value="true" />
+      </parameters>
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="samples" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <module name="samples" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.deckard_test_eval" />
+      <item itemvalue="Python.sourcercc_test_eval" />
+      <item itemvalue="Python.classification_bigbench_keras" />
+      <item itemvalue="Python.preprocessing_bigbench" />
+      <item itemvalue="Python.classification" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.preprocessing_bigbench" />
+        <item itemvalue="Python.classification_bigbench_keras" />
+        <item itemvalue="Python.classification" />
+        <item itemvalue="Python.sourcercc_test_eval" />
+        <item itemvalue="Python.deckard_test_eval" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="31aa9d6d-ebb9-4b3a-aa27-786d219e6c14" name="Default" comment="" />
+      <created>1476371587041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1476371587041</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="541" y="33" width="1379" height="1047" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Tool Output" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5064248" side_tool="true" weight="0.33705357" />
+      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49357522" weight="0.4564732" />
+      <window_info anchor="bottom" id="Version Control" order="16" />
+      <window_info anchor="bottom" id="Python Console" order="14" weight="0.32924107" />
+      <window_info anchor="bottom" id="Terminal" order="15" weight="0.32924107" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26757368" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="ANTLR Preview" order="10" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.32955405" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.24945612" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49713877" weight="0.22433035" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Salesforce" order="13" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Debug Logs" order="11" />
+      <window_info anchor="bottom" id="Execute Anonymous" order="12" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290653" />
+      <window_info anchor="right" id="Data View" order="4" weight="0.32944787" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>126</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>130</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>29</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>243</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>246</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>180</line>
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>185</line>
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>178</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>181</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>193</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>190</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>159</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>172</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing.py</url>
+          <line>155</line>
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>506</line>
+          <option name="timeStamp" value="155" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>494</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>255</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>234</line>
+          <option name="timeStamp" value="164" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>396</line>
+          <option name="timeStamp" value="185" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>363</line>
+          <option name="timeStamp" value="186" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>112</line>
+          <option name="timeStamp" value="204" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/inspect_checkpoint.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="226" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>958</line>
+          <option name="timeStamp" value="228" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>889</line>
+          <option name="timeStamp" value="230" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>865</line>
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>600</line>
+          <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification.py</url>
+          <line>412</line>
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>85</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/existing_techniques/ase16.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="257" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>440</line>
+          <option name="timeStamp" value="262" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>447</line>
+          <option name="timeStamp" value="263" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>374</line>
+          <option name="timeStamp" value="264" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>249</line>
+          <option name="timeStamp" value="265" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>218</line>
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>269</line>
+          <option name="timeStamp" value="269" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/sda_unsup.py</url>
+          <line>580</line>
+          <option name="timeStamp" value="272" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>273</line>
+          <option name="timeStamp" value="298" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>328</line>
+          <option name="timeStamp" value="311" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>345</line>
+          <option name="timeStamp" value="312" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>351</line>
+          <option name="timeStamp" value="313" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>333</line>
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/utils/data_utils.py</url>
+          <line>512</line>
+          <option name="timeStamp" value="319" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/utils/data_utils.py</url>
+          <line>516</line>
+          <option name="timeStamp" value="320" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/utils/data_utils.py</url>
+          <line>515</line>
+          <option name="timeStamp" value="321" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>347</line>
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>285</line>
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>319</line>
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>310</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/classification_bigbench_keras.py</url>
+          <line>430</line>
+          <option name="timeStamp" value="330" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/preprocessing_bigbench.py</url>
+          <line>180</line>
+          <option name="timeStamp" value="332" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="339" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>train_dataset</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>y_selected</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>ts_selected</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.bincount(test_Y)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.bincount(train_Y)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>train_Y</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.bincount(y)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>train_X_left</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>(train_Y == 1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/existing_techniques/rnn_static_graph.py" />
+    <entry file="file://$PROJECT_DIR$/soucercc_test_pair_eval.py" />
+    <entry file="file://$PROJECT_DIR$/soucercc_eval.py" />
+    <entry file="file://$PROJECT_DIR$/deckard_eval.py" />
+    <entry file="file://$PROJECT_DIR$/result/10_fold_balanced_bak.txt" />
+    <entry file="file://$PROJECT_DIR$/rnn.py" />
+    <entry file="file://$PROJECT_DIR$/result/10_fold.txt" />
+    <entry file="file://$PROJECT_DIR$/result/sda_unsup_10_fold_bak.txt" />
+    <entry file="file://$PROJECT_DIR$/result/sda_base_10_fold.txt" />
+    <entry file="file://$PROJECT_DIR$/result/sda_unsup_10_fold_bak2.txt" />
+    <entry file="file://$PROJECT_DIR$/result/sda_unsup_10_fold.txt" />
+    <entry file="file://$PROJECT_DIR$/result/sda_base_10_fold_bak.txt" />
+    <entry file="file://$PROJECT_DIR$/existing_techniques/ase16.py" />
+    <entry file="file://$PROJECT_DIR$/result/time_stat.txt" />
+    <entry file="file://$PROJECT_DIR$/deckard_test_eval.py" />
+    <entry file="file://$PROJECT_DIR$/sourcercc_test_eval.py" />
+    <entry file="file://$PROJECT_DIR$/feature_extraction.py" />
+    <entry file="file://$PROJECT_DIR$/viz.py" />
+    <entry file="file://$PROJECT_DIR$/autoencoder.py" />
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/scikit_learn-0.19.1-py2.7-linux-x86_64.egg/sklearn/model_selection/_split.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="671" selection-start-line="671" selection-end-line="671" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/scikit_learn-0.19.1-py2.7-linux-x86_64.egg/sklearn/utils/validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="461" selection-start-line="461" selection-end-line="461" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/layers/core.py" />
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/scikit_learn-0.19.1-py2.7-linux-x86_64.egg/sklearn/utils/multiclass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4014">
+          <caret line="235" column="33" selection-start-line="235" selection-start-column="33" selection-end-line="235" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result/plot/model.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/scikit_learn-0.19.1-py2.7-linux-x86_64.egg/sklearn/metrics/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="875" column="35" selection-start-line="875" selection-start-column="4" selection-end-line="875" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/utils/np_utils.py" />
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/losses.py" />
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/engine/topology.py" />
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/backend/tensorflow_backend.py" />
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="1667" selection-start-line="1667" selection-end-line="1667" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/multiprocessing/queues.py" />
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/scikit_learn-0.19.1-py2.7-linux-x86_64.egg/sklearn/utils/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="288" column="16" selection-start-line="288" selection-start-column="4" selection-end-line="288" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2017.3/system/python_stubs/-2085991377/cPickle.py" />
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/legacy/interfaces.py" />
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/utils/data_utils.py" />
+    <entry file="file://$PROJECT_DIR$/result/plot/whole_model.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result/plot/merge_model.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result/plot/feed_forward_model.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/optimizers.py" />
+    <entry file="file://$USER_HOME$/anaconda2/envs/tf1.3/lib/python2.7/site-packages/keras/engine/training.py" />
+    <entry file="file://$PROJECT_DIR$/result/10_fold_balanced.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="700">
+          <caret line="35" column="31" selection-start-line="35" selection-start-column="31" selection-end-line="35" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/result/id4.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sda_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3208">
+          <caret line="222" column="55" selection-start-line="222" selection-start-column="55" selection-end-line="222" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sda_unsup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#869#1389#0" />
+            <element signature="e#1422#1533#0" />
+            <element signature="e#1571#1976#0" />
+            <element signature="e#2014#2196#0" />
+            <element signature="e#2227#3243#0" />
+            <element signature="e#3265#4127#0" />
+            <element signature="e#4186#5015#0" />
+            <element signature="e#5054#5570#0" />
+            <element signature="e#5611#5830#0" />
+            <element signature="e#5866#20703#0" />
+            <element signature="e#20751#22514#0" />
+            <element signature="e#22552#25828#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1780">
+          <caret line="248" column="29" selection-start-line="248" selection-start-column="29" selection-end-line="248" selection-end-column="29" />
+          <folding>
+            <element signature="e#281#1543#0" />
+            <element signature="e#2990#4435#0" />
+            <element signature="e#4800#5302#0" />
+            <element signature="e#5689#6937#0" />
+            <element signature="e#6989#7308#0" />
+            <element signature="e#7386#7941#0" />
+            <element signature="e#7973#8702#0" />
+            <element signature="e#8731#10415#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph_mat_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classification_bigbench.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1766">
+          <caret line="638" column="20" selection-start-line="638" selection-start-column="20" selection-end-line="638" selection-end-column="20" />
+          <folding>
+            <element signature="e#8566#8804#0" />
+            <element signature="e#10325#10455#0" />
+            <element signature="e#10497#10650#0" />
+            <element signature="e#10670#14551#0" />
+            <element signature="e#14588#24660#0" />
+            <element signature="e#24704#26482#0" />
+            <element signature="e#26520#29278#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6000">
+          <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
+          <folding>
+            <element signature="e#25#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/encoding/src/Encoder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22524" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing_bigbench.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="199" selection-start-line="199" selection-end-line="199" />
+          <folding>
+            <element signature="e#39#76#0" expanded="true" />
+            <element signature="e#514#1011#0" />
+            <element signature="e#1047#1576#0" />
+            <element signature="e#1618#2030#0" />
+            <element signature="e#3438#6904#0" />
+            <element signature="e#6966#8629#0" />
+            <element signature="e#8659#9299#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classification_bigbench_keras.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="480" column="66" lean-forward="true" selection-start-line="480" selection-start-column="66" selection-end-line="480" selection-end-column="66" />
+          <folding>
+            <element signature="e#1070#1086#0" />
+            <element signature="e#5171#5300#1" />
+            <element signature="e#5719#5978#0" />
+            <element signature="e#5726#5888#0" />
+            <element signature="e#6017#6199#1" />
+            <element signature="e#6255#6328#0" />
+            <element signature="e#6365#6521#0" />
+            <element signature="e#6365#6407#0" />
+            <element signature="e#6768#6836#0" />
+            <element signature="e#10231#10258#0" />
+            <element signature="e#11218#11298#0" />
+            <element signature="e#12374#13046#0" />
+            <element signature="e#12374#12427#0" />
+            <element signature="e#12722#12751#0" />
+            <element signature="e#15434#15491#0" />
+            <element signature="e#16427#16501#0" />
+            <element signature="e#16602#16714#0" />
+            <element signature="e#17268#17371#0" />
+            <element signature="e#18102#18194#0" />
+            <element signature="e#18325#18415#0" />
+            <element signature="e#22206#22223#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
