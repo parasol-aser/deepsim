@@ -6,7 +6,12 @@ This project is a prototype implementation of the paper **DeepSim: Deep Learning
 
 *We haven't created a setup script yet. At this moment you can install those dependency packages manually.*
 
-We tested it on Ubuntu 16.04.3 64bit. The dependency packages are listed below:
+We tested it on Ubuntu 16.04.3 64bit. Our hardware environment includes:
+- Intel i7 6700K, 4.0GHz
+- NVIDIA GTX 1080, 8GB
+- DDR4 3000MHz, 48GB
+
+The dependency packages are listed below:
 - Python 2.7
 - Tensorflow 1.3 (higher version should be fine)
 - Keras 2.x
@@ -36,7 +41,9 @@ Each sample here is a in a spart format. For each 88d feature vector, we only st
 
 After getting the matrices, you can run the classification.py to train the model. By default we are running a 10-fold cross-validation experiment. *You may need to change some paths to your desired folders, since we haven't cleaned the code yet*. Feel free to tweak those super-parameters (batch size, learning rate, layer size, class weights, etc.)
 
+On our environment, each run of the 10-fold takes nearly 3.75 hours. If you are running it using a weaker GPU, please expect longer time to finish. If you use larger batch size, please make sure that you have enough large memory, since each sample contains 128*128*88 elements. If the result you get are different from what reported in the paper, just change the super-parameters to the values presented in the paper (if you are running on the GCJ dataset), or you can write a simple script to find your best parameter setting on your dataset.
 
+Running the rest two baseline models are similar.
 
 If you you have any questions concerning running this tool, just post an issue here. If you think this tool is useful in your own work, please cite our paper (a bibtex style will be given later):
 
