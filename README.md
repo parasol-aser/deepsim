@@ -1,4 +1,4 @@
-# deepsim
+# DeepSIM
 
 This project is a prototype implementation of DeepSim, a deep learning-based approach to measure code functional similarity. If you find the tool useful in your work, please cite our FSE 2018 paper:
 
