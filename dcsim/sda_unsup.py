@@ -122,8 +122,6 @@ def binary_classification(h_left, h_right, dropout):
             b_m = init_weights(b_m_s, 'b_m')
         with tf.name_scope('hidden'):
             a_in = tf.nn.elu(tf.nn.bias_add(tf.matmul(input, w_m), b_m))
-        # with tf.name_scope('drop_out'):
-        #     a_in = tf.nn.dropout(a_in, dropout)
         cls_reg_term = tf.nn.l2_loss(w_m)
     with tf.name_scope('output_layer'):
         with tf.name_scope('weights'):
@@ -173,7 +171,7 @@ def train_10_fold():
     test_size = 256
 
     skf = StratifiedKFold(n_splits=10)
-    file_path = "data/googlejam_newencoding/g4_128.npy"
+    file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int32)
     
@@ -185,14 +183,10 @@ def train_10_fold():
     sample_weights = tf.placeholder(tf.float32, [batch_size])
     
     with tf.variable_scope('encoder-decoder'):
-        # h = encoder(X_left, dropout)
-        # z = decoder(h)
         z = decoder(encoder(X_left, dropout))
     
     cost = tf.reduce_mean(tf.nn.l2_loss(z - X_left))
-    # cost = tf.reduce_mean(tf.multiply(tf.reduce_sum(tf.pow(z - X_left, 2)), sample_weights))
     tf.summary.scalar('ae_cost', cost, collections=['ae'])
-    # reg_term = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
     encoding_trian_op = tf.train.AdamOptimizer().minimize(
         cost + beta_1 * reg_term)
     
@@ -205,9 +199,6 @@ def train_10_fold():
     
     cls_cost = tf.reduce_mean(
         tf.nn.softmax_cross_entropy_with_logits(logits=py_x, labels=Y))
-    # cls_cost = tf.reduce_mean(
-    #     tf.losses.softmax_cross_entropy(logits=py_x, onehot_labels=Y,
-    #                                     weights=sample_weights))
     tf.summary.scalar('cls_cost', cls_cost, ['cls'])
     cls_train_op = tf.train.AdamOptimizer().minimize(
         cls_cost + beta_2 * cls_reg_term)
@@ -239,28 +230,10 @@ def train_10_fold():
                                                         neg_ratio=1.3,
                                                         pos_ratio=1.0,
                                                         add_all_neg=False)
-        # train_X_left, train_X_right, train_Y = \
-        #     graph_mat_data.make_pairs_10_fold(X_train, y_train,
-        #                                                 neg_ratio=10.0,
-        #                                                 pos_ratio=1.0,
-        #                                                 add_all_neg=True)
         test_X_left, test_X_right, test_Y = \
             graph_mat_data.make_pairs_10_fold(X_test, y_test, neg_ratio=1.0,
                                               pos_ratio=1.0, add_all_neg=True)
-        # test_indices = np.random.permutation(test_Y.shape[0])
-        # test_X_left = test_X_left[test_indices]
-        # test_X_right = test_X_right[test_indices]
-        # test_Y = test_Y[test_indices]
     
-        # for small test
-        # train_X_left = train_X_left[:batch_size*50]
-        # train_X_right = train_X_right[:batch_size*50]
-        # train_Y = train_Y[:batch_size*50]
-        # test_X_left = test_X_left[:batch_size*50]
-        # test_X_right = test_X_right[:batch_size*50]
-        # test_Y = test_Y[:batch_size*50]
-    
-        # compute the class weights
         classes_numbers = np.bincount(np.argmax(train_Y, axis=1))
         classes_weights = np.array([classes_numbers[1] * 2.0 /
                                     (classes_numbers[0] + classes_numbers[1]),
@@ -285,32 +258,6 @@ def train_10_fold():
             dense_test_X_right = from_sparse_arrs(test_X_right[0:test_size])
 
             it = 0
-            # for epoch in xrange(1):
-            #     for start, end in zip(
-            #             xrange(0, np.shape(train_X_left)[0], batch_size),
-            #             xrange(batch_size, np.shape(train_X_left)[0] + 1,
-            #                    batch_size)):
-            #         # indices = np.random.permutation(X_train.shape[0])
-            #         # train_X_left = X_train[indices]
-            #         # train_X_right = train_X_right[indices]
-            #         # train_Y = train_Y[indices]
-            #         dense_train_X_left = from_sparse_arrs(
-            #             train_X_left[start:end])
-            #         # dense_train_X_right = from_sparse_arrs(train_X_right[start:end])
-            #         _ = sess.run([encoding_trian_op],
-            #                      feed_dict={X_left: dense_train_X_left,
-            #                                 dropout: keep_prob})
-            #         # train_writer.add_summary(summary, it)
-            #         if (it % 100 == 0):
-            #             print('Epoch: %d, Iter: %d\n' % (epoch, it))
-            #             h_left_val = sess.run(z,
-            #                                   feed_dict={
-            #                                       X_left: dense_test_X_left,
-            #                                       dropout: 1.0})
-            #             print('l2 cost: %.3f\n' % (np.mean(
-            #                 np.linalg.norm(h_left_val - dense_test_X_left,
-            #                                axis=1))))
-            #         it += 1
             for epoch in xrange(300):
                 indices = np.random.permutation(X_train.shape[0])
                 shuffle_train_X = X_train[indices]
@@ -397,8 +344,6 @@ def train_10_fold():
                 print(epoch, test_acc)
     
                 saver = tf.train.Saver()
-                # if test_acc > best_test_acc:
-                #     best_test_acc = test_acc
                 saver.save(sess, os.path.join(fold_path, 'mode.ckpt'))
                 print "model saved."
 
@@ -517,8 +462,7 @@ def predict_on_full_dataset():
     :return:
     '''
     st = time.time()
-    file_path = "../detector/dataset/training/googlejam_newencoding" \
-                "/g4_128.npy"
+    file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int)
     # test_X_left, test_X_right, test_Y = \

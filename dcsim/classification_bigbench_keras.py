@@ -38,9 +38,6 @@ keep_prob = 0.6
 batch_size = 256
 test_size = 256
 
-# beta = 0.00003
-# beta = 0.00001 # for model with batch normalization
-# reg_term = None
 
 # disable tensorflow debugging information
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
@@ -50,7 +47,6 @@ logdir = '/tmp/logs'
 kernel_init = K.initializers.VarianceScaling(scale=1.0, mode='fan_avg',
                                              distribution='uniform')
 bias_init = K.initializers.Constant(value=0.01)
-# kernel_reg = K.regularizers.l2(0.0001)
 
 
 def stat_by_type(y_true, y_pred, ts, fout=None):
@@ -139,7 +135,7 @@ def from_sparse_arrs(sparse_arrs):
 
 def fit_generator(Xl, Xr, Y):
     '''
-    使用fit_generator时，最好设置worker=1, use_multiprocessing=False
+    Best set worker=1, use_multiprocessing=False
     :param Xl:
     :param Xr:
     :param Y:
@@ -165,18 +161,11 @@ def fit_generator(Xl, Xr, Y):
                 batch_y = []
 
 class SequenceSamples(Sequence):
-    '''
-    Note: SequenceSamples 在use_multiprocessing=True的情况下比fit_generator安全，
-    然而，在return的数据量很大的情况下，会提示bad message legnth，这可能是由于python
-    的multiprocessing导致的，无法在进程间共享过大的数据
-    '''
     def __init__(self, Xl, Xr, Y, batch_size):
         self.Xl, self.Xr, self.Y = Xl, Xr, Y
         self.batch_size = batch_size
     
     def __len__(self):
-        # return np.shape(self.Y)[0] // batch_size
-        # 使用 // 最后会截断一部分，导致predict时候，y_pred与y_true的维度不一致
         return np.ceil(np.shape(self.Y)[0] / batch_size)
         
     def __getitem__(self, item):
@@ -192,7 +181,6 @@ class SequenceSamples(Sequence):
     
 
 def feed_forward(x):
-    # x = K.backend.reshape(x, shape=(-1, bin_vec_dim))
     x = Lambda(lambda input: K.backend.reshape(input, (-1, bin_vec_dim)),
                batch_input_shape=K.backend.get_variable_shape(x))(x)
     x = Dense(embedding_dim,
@@ -200,9 +188,6 @@ def feed_forward(x):
               bias_initializer=bias_init)(x)
     x = BatchNormalization()(x)
     x = Activation(activation='relu')(x)
-    # x = Dropout(keep_prob)(x)
-    
-    # x = K.backend.reshape(x, shape=(-1, dim*embedding_dim))
     x = Lambda(
         lambda input: K.backend.reshape(input, (-1, dim * embedding_dim)))(x)
     x = Dense(256, kernel_initializer=kernel_init,
@@ -217,8 +202,6 @@ def feed_forward(x):
     x = BatchNormalization()(x)
     x = Activation(activation='relu')(x)
     x = Dropout(keep_prob)(x)
-    
-    # x = K.backend.reshape(x, shape=(batch_size, dim, 64))
     x = Lambda(lambda input: K.backend.reshape(input, (-1, dim, 64)))(x)
     x = GlobalAveragePooling1D()(x)  # (batch_size, 64)
     return x
@@ -227,12 +210,8 @@ def classification(x1, x2):
     input = Input(shape=(dim, dim, bin_vec_dim))
     # share layers
     feed_forward_model = Model(inputs=input, outputs=feed_forward(input))
-    # plot_model(feed_forward_model, to_file='./result/plot/feed_forward_model.png',
-    #            show_shapes=True)
-    
     x1 = feed_forward_model(x1)
     x2 = feed_forward_model(x2)
-    
     concat_input = Input(shape=(128,))
     # share layers
     merge_model = Model(inputs=concat_input,
@@ -242,7 +221,6 @@ def classification(x1, x2):
                                       bias_initializer=bias_init,
                                       input_shape=(128,))(
                                     concat_input))))
-    # plot_model(merge_model, to_file='./result/plot/merge_model.png', show_shapes=True)
     
     xc1 = K.layers.concatenate([x1, x2])
     xc1 = merge_model(xc1)
@@ -259,18 +237,10 @@ def classification(x1, x2):
     return x
 
 def model_summary():
-    # X_left = Input(batch_shape=(dim, dim, bin_vec_dim))
-    # X_right = Input(batch_shape=(batch_size, dim, dim, bin_vec_dim))
     X_left = Input((dim, dim, bin_vec_dim))
     X_right = Input((dim, dim, bin_vec_dim))
-    
     predictions = classification(X_left, X_right)
-    
     model = Model(inputs=[X_left, X_right], outputs=predictions)
-    
-    # def recall(y_true, y_pred):
-    #     return tf.metrics.recall(y_true, y_pred)
-    
     model.compile(optimizer=K.optimizers.adam(lr=0.0005),
                   loss=K.losses.binary_crossentropy,
                   metrics=['accuracy'])
@@ -336,11 +306,6 @@ def train_10_fold_balanced():
         model.compile(optimizer=K.optimizers.adam(lr=0.001),
                       loss=K.losses.binary_crossentropy,
                       metrics=['accuracy'])
-        
-        # weights = class_weight.compute_class_weight('balanced',
-        #                                             np.unique(train_Y), train_Y)
-        # class_weight = dict(enumerate(weights))
-        # model.train_on_batch([validate_X_left, validate_X_right], validate_Y)
         samples_generator = SequenceSamples(train_X_left,train_X_right,
                                             train_Y, batch_size)
         model.fit_generator(fit_generator(train_X_left, train_X_right, train_Y),
@@ -356,8 +321,6 @@ def train_10_fold_balanced():
         
         print("Evaluation:")
 
-        # model.evaluate_generator(fit_generator(test_X_left,test_X_right,test_Y),
-        #                     workers=4, use_multiprocessing=True)
         test_samples_generator = SequenceSamples(test_X_left, test_X_right,
                                                  test_Y, batch_size),
         y_pred = model.predict_generator(fit_generator(test_X_left,
@@ -471,11 +434,7 @@ def train_on_selected_id():
 
 if __name__ == '__main__':
     # model_summary()
-    # balanced version of 10-fold using penalty for 0-class
     beg = time.time()
     train_10_fold_balanced()
-    # train_on_selected_id()
     st = time.time()
     print("Total time: ", st-beg)
-    # predict_on_full_dataset()
-    # print "Predict time on the full dataset: ", time.time() - st

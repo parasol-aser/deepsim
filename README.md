@@ -28,7 +28,7 @@ In order to run the tool, you need first to generate encoded matrices from Java 
 ```bash
 ./encoding.jar your-bytecode-jar-path.jar
 ```
-The generated matrices will be stored in the folder *data* under your current working directory.
+The generated matrices will be stored in the folder *data* under your current working directory. (We already test this tool on a set of Java projects and it works well. If you find any crashes/errors, please post an issue here.)
 
 *NOTE: the default matrix size is 128. If you want to change this, just change the value of the variable fixedSize in the Encoder.java source code file.*
 
@@ -47,4 +47,10 @@ On our environment, each run of the 10-fold takes nearly 3.75 hours. If you are 
 
 Running the rest two baseline models are similar.
 
+## NOTE
 
+We are working on a set of improved models, some of them are trying to address
+the limitations of this work. Hope we can finish and release them soon.
+
+In addition, we probably will include a simple web project in this repo for collecting larger
+and more comprehensive training samples (though we will not hold it on our server).

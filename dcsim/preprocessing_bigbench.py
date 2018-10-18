@@ -11,10 +11,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.utils import shuffle
 
 
-cfg_folder = "/mnt/data/Research/SourceCodeSimilarity/BigCloneBench/dcsim" \
+cfg_folder = "../BigCloneBench/dcsim" \
              "/cfgs_antlr"
 
-labels_folder = "/mnt/data/Research/SourceCodeSimilarity/BigCloneBench/dcsim" \
+labels_folder = "../BigCloneBench/dcsim" \
                 "/labels_antlr"
 
 seed = 233

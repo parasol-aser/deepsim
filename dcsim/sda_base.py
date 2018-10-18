@@ -7,16 +7,6 @@ from sklearn.model_selection import StratifiedKFold
 
 import graph_mat_data
 
-# w_0_s = [28 * 28, 256]; b_0_s = [256]
-# w_1_s = [256, 50]; b_1_s = [50]
-# w_m_s = [100, 20]; b_m_s = [20]
-# w_o_s = [20, 2]
-
-# w_0_s = [28 * 28 * 2, 512]; b_0_s = [512]
-# w_1_s = [512, 100]; b_1_s = [100]
-# w_m_s = [100, 20]; b_m_s = [20]
-# w_o_s = [20, 2]
-
 dim = graph_mat_data.dim
 bin_vec_dim = 8
 
@@ -40,7 +30,6 @@ def init_weights(shape, name):
                            initializer=tf.contrib.layers.variance_scaling_initializer(factor=1.0, mode='FAN_AVG',
                                                                                       uniform=True),
                            regularizer=tf.contrib.layers.l2_regularizer(scale=beta))
-    # return tf.Variable(tf.random_normal(shape, stddev=0.1)) #better to use tf.get_variable with regularizer and initializer
 
 
 def bias_variable(shape, name):
@@ -49,7 +38,6 @@ def bias_variable(shape, name):
     return tf.get_variable(name=name, shape=shape, dtype=tf.float32, initializer=tf.constant_initializer(0.01))
 
 def model(X_left, X_right, dropout):
-    # X = tf.concat(1, [X_left, X_right])
     with tf.name_scope("Encoder_Layer_1"):
         with tf.name_scope('weights'):
             w_0 = init_weights(w_0_s, 'w_0')
@@ -61,9 +49,6 @@ def model(X_left, X_right, dropout):
         with tf.name_scope('hidden'):
             a_1_l = tf.nn.elu(tf.nn.bias_add(tf.matmul(X_left, w_0), b_0))
             a_1_r = tf.nn.elu(tf.nn.bias_add(tf.matmul(X_right, w_0), b_0))
-        # with tf.name_scope('drop_out'):
-        #     a_1_l = tf.nn.dropout(a_1_l, dropout)
-        #     a_1_r = tf.nn.dropout(a_1_r, dropout)
     with tf.name_scope("Encoder_Layer_2"):
         with tf.name_scope('weights'):
             w_1 = init_weights(w_1_s, 'w_1')
@@ -75,9 +60,6 @@ def model(X_left, X_right, dropout):
         with tf.name_scope('hidden'):
             a_2_l = tf.nn.elu(tf.nn.bias_add(tf.matmul(a_1_l, w_1), b_1))
             a_2_r = tf.nn.elu(tf.nn.bias_add(tf.matmul(a_1_r, w_1), b_1))
-        # with tf.name_scope('drop_out'):
-        #     a_2_l = tf.nn.dropout(a_2_l, dropout)
-        #     a_2_r = tf.nn.dropout(a_2_r, dropout)
     with tf.name_scope("Encoder_Layer3"):
         with tf.name_scope('weights'):
             w_2 = init_weights(w_2_s, 'w_2')
@@ -89,9 +71,6 @@ def model(X_left, X_right, dropout):
         with tf.name_scope('hidden'):
             a_3_l = tf.nn.elu(tf.nn.bias_add(tf.matmul(a_2_l, w_2), b_2))
             a_3_r = tf.nn.elu(tf.nn.bias_add(tf.matmul(a_2_r, w_2), b_2))
-        # with tf.name_scope('drop_out'):
-        #     a_3_l = tf.nn.dropout(a_3_l, dropout)
-        #     a_3_r = tf.nn.dropout(a_3_r, dropout)
     with tf.name_scope('Merge_Layer'):
         input = tf.concat(axis=1, values=[a_3_l, a_3_r])
         with tf.name_scope('weights'):
@@ -100,8 +79,6 @@ def model(X_left, X_right, dropout):
             b_m = init_weights(b_m_s, 'b_m')
         with tf.name_scope('hidden'):
             a_in = tf.nn.elu(tf.nn.bias_add(tf.matmul(input, w_m), b_m))
-        # with tf.name_scope('drop_out'):
-        #     a_in = tf.nn.dropout(a_in, dropout)
     with tf.name_scope('output_layer'):
         with tf.name_scope('weights'):
             w_o = init_weights(w_o_s, 'w_o')
@@ -145,8 +122,7 @@ def train_10_fold():
     test_size = 128
 
     skf = StratifiedKFold(n_splits=10)
-    file_path = "../detector/dataset/training/googlejam_newencoding" \
-                "/g4_128.npy"
+    file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int)
     
@@ -161,9 +137,6 @@ def train_10_fold():
     
     cost = tf.reduce_mean(
        tf.nn.softmax_cross_entropy_with_logits(logits=py_x, labels=Y))
-    # cost = tf.reduce_mean(
-    #     tf.losses.softmax_cross_entropy(logits=py_x, onehot_labels=Y,
-    #                                     weights=sample_weights))
     reg_term = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
     train_op = tf.train.AdamOptimizer().minimize(cost + reg_term)
     predict_op = tf.argmax(py_x, 1)
@@ -188,9 +161,6 @@ def train_10_fold():
             os.mkdir(fold_path)
         X_train, X_test = X[train_idx], X[test_idx]
         y_train, y_test = y[train_idx], y[test_idx]
-        # train_X_left, train_X_right, train_Y = \
-        #     graph_mat_data.make_pairs_10_fold(X_train, y_train, neg_ratio=10.0,
-        #                                       pos_ratio=1.0, add_all_neg=True)
         train_X_left, train_X_right, train_Y = \
             graph_mat_data.make_pairs_10_fold_old_model(X_train, y_train,
                                                         neg_ratio=1.3,
@@ -198,15 +168,6 @@ def train_10_fold():
         test_X_left, test_X_right, test_Y = \
             graph_mat_data.make_pairs_10_fold(X_test, y_test, neg_ratio=1.0,
                                               pos_ratio=1.0, add_all_neg=True)
-    
-        # for small test
-        # train_X_left = train_X_left[:batch_size*50]
-        # train_X_right = train_X_right[:batch_size*50]
-        # train_Y = train_Y[:batch_size*50]
-        # test_X_left = test_X_left[:batch_size*50]
-        # test_X_right = test_X_right[:batch_size*50]
-        # test_Y = test_Y[:batch_size*50]
-    
         # compute the class weights
         classes_numbers = np.bincount(np.argmax(train_Y, axis=1))
         classes_weights = np.array([classes_numbers[1] * 1.0 /
@@ -295,10 +256,6 @@ def train_10_fold():
             recall, precision, f1_score = stat(
                 np.argmax(test_Y[:len(overall_predict_Y)], axis=1),
                 np.array(overall_predict_Y, dtype=np.int32), fout=fout)
-            # fout.write("Fold index: %d, accuracy: %.4f, recall: %.4f, "
-            #            "precision: %.4f, f1 score: %.4f\n" % (
-            #            fold_index, overall_accuracy /
-            #            iter, recall, precision, f1_score))
             fout.flush()
             avg_accuracy += overall_accuracy / iter
             avg_recall += recall
@@ -362,8 +319,7 @@ def stat(Y, predicted_Y, fout=None):
 
 def predict_on_full_dataset():
     st = time.time()
-    file_path = "../detector/dataset/training/googlejam_newencoding" \
-                "/g4_128.npy"
+    file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int)
     test_X_left, test_X_right, test_Y = \

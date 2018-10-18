@@ -111,12 +111,10 @@ def model(X, dropout, phase):
     with tf.name_scope('emb_layer'):
         wf = init_weights([bin_vec_dim, embedding_dim], 'wf')
         reg_term = tf.nn.l2_loss(wf)
-        # tf.add_to_collection(tf.GraphKeys.REGULARIZATION_LOSSES, wf)
         variable_summaries(wf)
         bf = init_bias([embedding_dim], 'bf')
         variable_summaries(bf)
         X = tf.reshape(X, [num * dim * dim, bin_vec_dim])
-        # h0 = tf.nn.elu(tf.nn.bias_add(tf.matmul(X, wf), bf))
         h0 = tf.nn.bias_add(tf.matmul(X, wf), bf)
         h0 = batch_act(h0, phase=phase, act=tf.nn.elu, scope='emb_layer_bn')
         h0 = tf.reshape(h0, [num * dim, dim * embedding_dim])
@@ -124,18 +122,14 @@ def model(X, dropout, phase):
     with tf.name_scope('row_fc_layer1'):
         wr1 = init_weights([embedding_dim * dim, 256], 'wr1')  # 128
         reg_term += tf.nn.l2_loss(wr1)
-        # tf.add_to_collection(tf.GraphKeys.REGULARIZATION_LOSSES, wr1)
         br1 = init_bias([256], 'br1')
-        # h1 = tf.nn.elu(tf.nn.bias_add(tf.matmul(h0, wr1), br1))
         h1 = tf.nn.bias_add(tf.matmul(h0, wr1), br1)
         h1 = batch_act(h1, phase=phase, act=tf.nn.elu, scope='row_fc_layer1_bn')
         h1 = tf.nn.dropout(h1, dropout)
     with tf.name_scope('row_fc_layer2'):
         wr2 = init_weights([256, 64], 'wr2')  # 32
         reg_term += tf.nn.l2_loss(wr2)
-        # tf.add_to_collection(tf.GraphKeys.REGULARIZATION_LOSSES, wr2)
         br2 = init_bias([64], 'br2')
-        # h2 = tf.nn.elu(tf.nn.bias_add(tf.matmul(h1, wr2), br2))
         h2 = tf.nn.bias_add(tf.matmul(h1, wr2), br2)
         h2 = batch_act(h2, phase=phase, act=tf.nn.elu, scope='row_fc_layer2_bn')
         h2 = tf.reshape(h2, [num, dim, 64])  # 32
@@ -150,25 +144,19 @@ def classification(X1, X2, dropout, phase):
         h31 = model(X1, dropout, phase)
         scope.reuse_variables()
         h32 = model(X2, dropout, phase)
-    # h4 = tf.concat(1, [h31, h32])  #old tf version
     h41 = tf.concat(values=[h31, h32], axis=1)
     with tf.name_scope('fc_layer1_1'):
         w5 = init_weights([128, 32], 'w5')  # 64 16
         reg_term += tf.nn.l2_loss(w5)
-        # tf.add_to_collection(tf.GraphKeys.REGULARIZATION_LOSSES, w5)
         b5 = init_bias([32], 'b5')
-        # h5_1 = tf.nn.elu(tf.nn.bias_add(tf.matmul(h41, w5), b5))
         h5_1 = tf.nn.bias_add(tf.matmul(h41, w5), b5)
         h5_1 = batch_act(h5_1, phase=phase, act=tf.nn.elu,
                          scope='fc_layer1_1_bn')
-        # h5_1 = tf.nn.dropout(h5_1, dropout)
     h42 = tf.concat(values=[h32, h31], axis=1)
     with tf.name_scope('fc_layer1_2'):
-        # h5_2 = tf.nn.elu(tf.nn.bias_add(tf.matmul(h42, w5), b5))
         h5_2 = tf.nn.bias_add(tf.matmul(h42, w5), b5)
         h5_2 = batch_act(h5_2, phase=phase, act=tf.nn.elu,
                          scope='fc_layer1_2_bn')
-        # h5_2 = tf.nn.dropout(h5_2, dropout)
     h5 = (h5_1 + h5_2) / 2.
     with tf.name_scope('sm_layer'):
         w7 = init_weights([32, 2], 'w7')
@@ -188,15 +176,12 @@ def classification_predict(hl, hr, dropout, phase):
                          scope='fc_layer1_1_bn')
     h42 = tf.concat(values=[hr, hl], axis=1)
     with tf.name_scope('fc_layer1_2'):
-        # h5_2 = tf.nn.elu(tf.nn.bias_add(tf.matmul(h42, w5), b5))
         h5_2 = tf.nn.bias_add(tf.matmul(h42, w5), b5)
         h5_2 = batch_act(h5_2, phase=phase, act=tf.nn.elu,
                          scope='fc_layer1_2_bn')
-        # h5_2 = tf.nn.dropout(h5_2, dropout)
     h5 = (h5_1 + h5_2) / 2.
     with tf.name_scope('sm_layer'):
         w7 = init_weights([32, 2], 'w7')
-        # tf.add_to_collection(tf.GraphKeys.REGULARIZATION_LOSSES, w7)
         variable_summaries(w7)
         o = tf.matmul(h5, w7)
     return o
@@ -239,10 +224,6 @@ def train():
     cost = tf.reduce_mean(
         tf.nn.softmax_cross_entropy_with_logits(logits=py_x, labels=Y))
     tf.summary.scalar('cost', cost)
-    # regularizer = tf.contrib.layers.l2_regularizer(scale=beta)
-    # reg_variables = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
-    # reg_cost = tf.contrib.layers.apply_regularization(regularizer, reg_variables)
-    # tf.summary.scalar('reg_cost', reg_cost)
     cost = tf.reduce_mean(cost + beta * reg_term)
     update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
     with tf.control_dependencies(update_ops):
@@ -251,13 +232,10 @@ def train():
 
     train_X_left, train_X_right, train_Y, test_X_left, test_X_right, test_Y = graph_mat_data.load_googlejam_data_newencoding(
         neg_ratio=1.3, pos_ratio=1.0)
-    # train_X_left = train_X_left[:256*100]
-    # train_X_right = train_X_right[:256*100]
-    # train_Y = train_Y[:256*100]
     t_beg = time.clock()
     with tf.Session() as sess:
         merged = tf.summary.merge_all()
-        train_writer = tf.summary.FileWriter('/home/zg/Desktop/dev/logs',
+        train_writer = tf.summary.FileWriter(logdir,
                                              sess.graph)
         tf.global_variables_initializer().run()
         saver = tf.train.Saver()
@@ -315,13 +293,12 @@ def train_10_fold_balanced():
     cost = tf.reduce_mean(cost + beta * reg_term)
     update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
     with tf.control_dependencies(update_ops):
-        # learning_rate = 0.001 # for 1:1 dataset
         train_op = tf.train.AdamOptimizer(learning_rate=0.001).minimize(
             cost)
         predict_op = tf.argmax(py_x, 1)
 
     skf = StratifiedKFold(n_splits=10)
-    file_path = "data/googlejam_newencoding/g4_128.npy"
+    file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int)
     # shuffle
@@ -389,7 +366,6 @@ def train_10_fold_balanced():
                         train_X_left[start:end])
                     dense_train_X_right = from_sparse_arrs(
                         train_X_right[start:end])
-                    # compute batch sample weights
                     batch_samples_weights = np.matmul(train_Y[start:end],
                                                      classes_weights)
                     batch_samples_weights = np.reshape(batch_samples_weights,
@@ -421,7 +397,6 @@ def train_10_fold_balanced():
                         train_writer.add_summary(summary, step)
                         print(epoch, np.mean(
                             np.argmax(test_Y[:test_size], axis=1) == predict_Y))
-                        # saver.save(sess=sess, save_path='models/model4_' + str(epoch) + '.ckpt')
             saver.save(sess, os.path.join(fold_path, 'mode.ckpt'))
             print "model saved."
             t_end = time.clock()
@@ -458,10 +433,6 @@ def train_10_fold_balanced():
             recall, precision, f1_score = stat(
                 np.argmax(test_Y[:len(overall_predict_Y)], axis=1),
                 np.array(overall_predict_Y, dtype=np.int32), fout=fout)
-            # fout.write("Fold index: %d, accuracy: %.4f, recall: %.4f, "
-            #            "precision: %.4f, f1 score: %.4f\n" % (
-            #            fold_index, overall_accuracy /
-            #            iter, recall, precision, f1_score))
             fout.flush()
             avg_accuracy += overall_accuracy / iter
             avg_recall += recall
@@ -539,7 +510,7 @@ def predict_on_full_dataset():
     py_x = classification_predict(h_left, h_right, dropout, phase)
     predict_op = tf.argmax(py_x, 1)
 
-    file_path = "../detector/dataset/training/googlejam_newencoding/g4_128.npy"
+    file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int)
     
@@ -593,7 +564,6 @@ def predict_on_full_dataset():
 
 
 if __name__ == '__main__':
-    # balanced version of 10-fold using penalty for 0-class
     train_10_fold_balanced()
     st = time.time()
     predict_on_full_dataset()

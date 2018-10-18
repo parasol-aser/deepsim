@@ -28,9 +28,6 @@ def load_googlejam_data_newencoding(neg_ratio = 1.0, pos_ratio = 1.0, add_positi
     dataset = cPickle.load(open(test_filepath, 'r'))
     test_data_dict, test_file_dest, test_infos = dataset['data'], dataset['file_dest'], dataset['infos']
     trainX_left, trainX_right, trainY = make_pairs_encoding(train_data_dict, neg_ratio, pos_ratio=pos_ratio, add_positive_sample = add_positive_sample)
-    # trainX_left = None
-    # trainX_right = None
-    # trainY = None
     testX_left, testX_right, testY = make_pairs_encoding_test(test_data_dict, neg_ratio, add_positive_sample = add_positive_sample)
     return trainX_left, trainX_right, trainY, testX_left, testX_right, testY
 
