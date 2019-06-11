@@ -310,11 +310,11 @@ def train_10_fold_balanced():
     avg_recall = 0.
     avg_precision = 0.
     avg_f1_score = 0.
-    fout = open('result/10_fold_balanced.txt', 'w')
     if os.path.exists('result') is not True:
         os.mkdir("result")
     if os.path.exists("10_fold_balanced") is not True:
         os.mkdir("10_fold_balanced")
+    fout = open('result/10_fold_balanced.txt', 'w')
     for train_idx, test_idx in skf.split(X, y):
         print ('*' * 40 + str(fold_index) + '*' * 40)
         fold_path = os.path.join("10_fold_balanced", str(fold_index))
@@ -513,7 +513,7 @@ def predict_on_full_dataset():
     file_path = "../dataset/g4_128.npy"
     dataset = np.load(open(file_path, 'r'))
     X, y = np.array(dataset['X']), np.array(dataset['y'], dtype=np.int)
-    
+
     t_beg = time.clock()
     saver = tf.train.Saver()
     sess = tf.InteractiveSession()
@@ -546,7 +546,7 @@ def predict_on_full_dataset():
     test_X_left = np.array(test_X_left)
     test_X_right = np.array(test_X_right)
     test_Y = np.array(test_Y, dtype=np.float32)
-    
+
 
     overall_predict_Y = []
     for start, end in zip(range(0, np.shape(test_X_left)[0], batch_size),
